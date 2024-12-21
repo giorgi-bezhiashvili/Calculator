@@ -1,0 +1,32 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+}
+button{
+    width: 70px;
+    height: 100px;
+    margin: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: darkviolet;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 900;
+}
+.calculator{
+    border: 2px solid green;
+    width: fit-content;
+}
+#equal{
+    background-color: orangered;
+}
+#text{
+    color: #ffffff;
+    font-size: 30px;
+    margin: 5px;
+    border-bottom: 3px solid green;
+}
