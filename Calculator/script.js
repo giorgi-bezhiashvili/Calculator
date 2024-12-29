@@ -11,11 +11,11 @@ let equalfun = function(){
         text.innerText = "error"
         calculation = " "
     }
-    //save to localstorage
-    localStorage.setItem("eqiation" , calculation)
+    localStorage.setItem("eqiation" , calculation) //add in local stoaage
  }
+const removeLastButton = document.getElementById("removeLast");
 
-//get to local storage and if localstoage isn't there get empty string
+//get value from localstorage and if it does't exist get empty string
 text.innerText = localStorage.getItem("eqiation") || " "
 
 
@@ -28,12 +28,13 @@ buttons.forEach((button) => {
 
 });
 
-//equal button function
+//equal button
 equal.addEventListener("click" , ()=>{
     equalfun()
 })
 
-//Keyboard
+
+//to work on keyboard
 document.body.addEventListener("keydown" , ()=>{
     
     const key = event.key
@@ -46,7 +47,17 @@ document.body.addEventListener("keydown" , ()=>{
     }else if("1234567890+-*/.".includes(key)){
         calculation += key
         text.innerText = calculation
-    }
+    }else if (key === "Backspace") {
+    calculation = calculation.slice(0, -1); // Remove the last character
+    text.innerText = calculation || "Numbers"; // Update the display
+    localStorage.setItem("eqiation", calculation); // Update local storage
+  }
     
 })
-
+removeLastButton.addEventListener("click", () => {
+    if (calculation.length > 0) {
+      calculation = calculation.slice(0, -1);
+      text.innerText = calculation || "Numbers"; 
+      localStorage.setItem("eqiation", calculation); 
+    }
+  });
